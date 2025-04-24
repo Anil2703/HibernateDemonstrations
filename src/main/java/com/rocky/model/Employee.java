@@ -56,6 +56,9 @@ public class Employee {
     //@ElementCollection
     //private Set<Address> listOfAddresses;
 
+    //@ElementCollection(fetch = FetchType.EAGER)
+    // Use for configuring lazy and eager loading
+
     //Below implementation for using address as both homeAddress and officeAddress
     @Embedded
     @AttributeOverrides({@AttributeOverride(name = "streetName", column = @Column(name = "home_Streetname")),
