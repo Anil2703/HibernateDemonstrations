@@ -25,11 +25,15 @@ public class Employee {
 
     //To save Address directly into as Columns of Employee Class, use @Embedded here on field and use @Embeddable on top of Class Address
     //Initialize this field, Add getters, setters and use it
+
+    //******************* If we want to use Address as PrimaryKey in class Employee, then use @EmbeddedId on top of field in class Employee and
+    //@Embeddable on class Address as usual*******************
+    //Addition:: @AttributeOverrides can be used for PrimaryKeys also if required in different classes.
+
     //@Embedded
     //private Address address;
 
     //Below implementation for using address as both homeAddress and officeAddress
-
     @Embedded
     @AttributeOverrides({@AttributeOverride(name = "streetName", column = @Column(name = "home_Streetname")),
                         @AttributeOverride(name = "landMark", column = @Column(name = "home_landMark")),
