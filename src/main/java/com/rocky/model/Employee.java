@@ -1,7 +1,13 @@
 package com.rocky.model;
 
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.Columns;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "employee")
@@ -32,6 +38,23 @@ public class Employee {
 
     //@Embedded
     //private Address address;
+
+    //Use below to save a listofaddresses as collection inside Employee class,
+    //The way it would be saved is it creates a seperate Table for Employee and an other table Employee_listOfAddresses
+    //it uses PK of class Employee and maps it as FK in Employee_listOfAddresses, which creates the Relation b/w these two tables.
+    //No need to use Entity on Top of Class Address
+    //******** TO Add more Tweaks like naming the above table Employee_listOfAddresses, Use @JoinTable Annotation alongside @ElementCollection
+    // and configure its Table Name as per you.
+    //@JoinTable(name = "TableName", joinColumns=@JoinColumn(name = ""))  , @JoinColumn for FK
+
+
+    //Use below to generate a PK inside the Table Employee_listOfAddresses or our JoinTable
+    //@GenericGenerator(name = "hilo-gen", strategy = "hilo")
+    //@CollectionId(columns = {@Column(name = "addressId")}, generator = "hilo-gen", type = @Type(type = "long"))
+
+
+    //@ElementCollection
+    //private Set<Address> listOfAddresses;
 
     //Below implementation for using address as both homeAddress and officeAddress
     @Embedded
