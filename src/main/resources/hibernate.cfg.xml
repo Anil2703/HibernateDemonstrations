@@ -13,5 +13,6 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
         <mapping class="com.rocky.model.Employee"/>
+        <mapping class="com.rocky.model.Address"/>
     </session-factory>
 </hibernate-configuration>
